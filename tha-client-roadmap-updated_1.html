@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Website Journey · Tha</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --grey: #f5f5f5;
+      --mid-grey: #888;
+      --accent: #ff5c00;
+      --accent-light: #fff0e9;
+      --text: #1a1a1a;
+      --border: #e8e8e8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--black);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .header-tag {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--mid-grey);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--black);
+      padding: 60px 40px 80px;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #aaa;
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* TIMELINE */
+    .timeline-section {
+      padding: 80px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      margin-bottom: 56px;
+      line-height: 1.2;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+    }
+
+    .step {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 52px;
+      position: relative;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 60px;
+      height: 60px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--accent);
+    }
+
+    .step-number.accent {
+      background: var(--accent);
+    }
+
+    .step-body {
+      padding-top: 10px;
+      flex: 1;
+    }
+
+    .step-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .tag-done { background: #e8f5e9; color: #2e7d32; }
+    .tag-fast { background: #fff3e0; color: #e65100; }
+    .tag-seo  { background: #e3f2fd; color: #1565c0; }
+    .tag-ongoing { background: #f3e5f5; color: #6a1b9a; }
+
+    .step-body h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .step-body p {
+      font-size: 15px;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .step-includes {
+      background: var(--grey);
+      border-radius: 12px;
+      padding: 16px 20px;
+      list-style: none;
+    }
+
+    .step-includes li {
+      font-size: 14px;
+      color: var(--text);
+      padding: 5px 0;
+      padding-left: 22px;
+      position: relative;
+    }
+
+    .step-includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* TIMELINE TIMEFRAME BADGES */
+    .timeframe {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--mid-grey);
+      margin-bottom: 14px;
+    }
+
+    .timeframe svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* WHAT YOU GET SUMMARY */
+    .summary-section {
+      background: var(--black);
+      padding: 72px 40px;
+      text-align: center;
+    }
+
+    .summary-section .section-label { color: var(--accent); }
+
+    .summary-section .section-heading {
+      color: var(--white);
+      margin-bottom: 48px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .summary-card {
+      background: #161616;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: left;
+    }
+
+    .summary-card .icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .summary-card h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .summary-card p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 72px 40px;
+      text-align: center;
+      background: var(--accent-light);
+    }
+
+    .cta-section h2 {
+      font-size: clamp(24px, 3vw, 38px);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 32px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      padding: 28px 40px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: #555;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* PRICING */
+    .pricing-section {
+      padding: 80px 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .pricing-card {
+      background: var(--grey);
+      border: 2px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 32px;
+      position: relative;
+    }
+
+    .pricing-card-accent {
+      background: var(--black);
+      border-color: var(--accent);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -13px;
+      left: 24px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+    }
+
+    .pricing-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+      margin-bottom: 12px;
+    }
+
+    .pricing-amount {
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--text);
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-card-accent .pricing-amount {
+      color: var(--white);
+    }
+
+    .pricing-card-accent .step-includes {
+      background: #1a1a1a;
+    }
+
+    .pricing-card-accent .step-includes li {
+      color: #ccc;
+    }
+
+    .pricing-freq {
+      font-size: 13px;
+      color: var(--mid-grey);
+      margin-bottom: 4px;
+    }
+
+    .pricing-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--mid-grey);
+      line-height: 1.8;
+      padding: 20px;
+      background: var(--grey);
+      border-radius: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+      .pricing-section { padding: 56px 24px; }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      header { padding: 20px 24px; }
+      .hero { padding: 48px 24px 64px; }
+      .timeline-section { padding: 56px 24px; }
+      .summary-section { padding: 56px 24px; }
+      .cta-section { padding: 56px 24px; }
+      footer { padding: 24px; }
+
+      .timeline::before { left: 25px; }
+      .step-number { width: 50px; height: 50px; font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">tha<span>.</span></div>
+    <div class="header-tag">Your Website Journey</div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-label">What happens next</div>
+    <h1>From demo to <span>live site.</span> Here's how it works.</h1>
+    <p>A simple, no-stress process. We handle everything. You just answer a few questions and we'll take it from there.</p>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline-section">
+    <div class="section-label">The process</div>
+    <div class="section-heading">Your journey, step by step</div>
+
+    <div class="timeline">
+
+      <!-- STEP 1 -->
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-body">
+          <div class="step-tag tag-done">Already done</div>
+          <h3>You've seen your demo</h3>
+          <p>We built you a custom demo site based on your business before you even committed. What you saw is just the starting point. The final version will be fully tailored to you.</p>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-body">
+          <div class="step-tag tag-fast">Day 1</div>
+          <h3>You send us your details</h3>
+          <p>We'll ask you for a few things to make the site completely yours. No long forms, no back-and-forth. Just a quick message with what we need.</p>
+          <ul class="step-includes">
+            <li>Your logo (or we'll use your business name styled up)</li>
+            <li>Any photos of your work (phone shots are fine)</li>
+            <li>Exact services you want listed</li>
+            <li>Opening hours and service area</li>
+            <li>Any specific wording you want included</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="step">
+        <div class="step-number accent">3</div>
+        <div class="step-body">
+          <div class="step-tag tag-fast">Days 2–3</div>
+          <h3>We build your full site</h3>
+          <p>We take everything you've sent and build out the complete, polished website. Every section written properly, every detail in place. Not a template with your name dropped in.</p>
+          <ul class="step-includes">
+            <li>Full copywriting for every section</li>
+            <li>Your real photos added throughout</li>
+            <li>Contact form connected and tested</li>
+            <li>Mobile-optimised layout</li>
+            <li>Fast loading speed</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-body">
+          <div class="step-tag tag-fast">Day 3–4</div>
+          <h3>You review and approve</h3>
+          <p>We send you a preview link. You check it over, tell us anything you'd like tweaked, and we make the changes. We don't go live until you're happy.</p>
+          <ul class="step-includes">
+            <li>Up to 3 rounds of revisions included</li>
+            <li>Review on any device: phone, tablet, desktop</li>
+            <li>We action changes same day where possible</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="step">
+        <div class="step-number accent">5</div>
+        <div class="step-body">
+          <div class="step-tag tag-fast">Day 5</div>
+          <h3>Your site goes live</h3>
+          <p>We connect your domain, set up hosting, and make the site live. From this point on, anyone searching for your trade in your area can find you.</p>
+          <ul class="step-includes">
+            <li>Domain connected (or purchased if needed)</li>
+            <li>Secure HTTPS set up automatically</li>
+            <li>Fast global hosting included</li>
+            <li>We confirm everything is live and working</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-body">
+          <div class="step-tag tag-seo">Week 2</div>
+          <h3>SEO foundations added</h3>
+          <p>Once your site is live, we do a proper SEO pass. This is what tells Google exactly who you are, where you work, and what you do. You start appearing in local searches.</p>
+          <ul class="step-includes">
+            <li>Local business schema added (Google reads this directly)</li>
+            <li>Page titles and meta descriptions optimised for your location</li>
+            <li>Headings structured around local search terms</li>
+            <li>Image descriptions added for accessibility and Google</li>
+            <li>Submitted to Google Search Console</li>
+            <li>Open Graph tags so links look great when shared</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- STEP 7 -->
+      <div class="step">
+        <div class="step-number">7</div>
+        <div class="step-body">
+          <div class="step-tag tag-ongoing">Ongoing</div>
+          <h3>We keep things running</h3>
+          <p>Your site doesn't get forgotten once it's live. We're available for updates, changes, and anything that comes up. Your site always reflects where your business is at.</p>
+          <ul class="step-includes">
+            <li>Content updates whenever you need them</li>
+            <li>Hosting and security managed for you</li>
+            <li>New photos or services added on request</li>
+            <li>WhatsApp us directly. No tickets, no delays</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHAT YOU GET SUMMARY -->
+  <div class="summary-section">
+    <div class="section-label">Everything included</div>
+    <div class="section-heading" style="color:#fff;">What you're getting</div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="icon">🌐</div>
+        <h4>Professional website</h4>
+        <p>Custom-built, not a template. Written properly for your trade and your area.</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">📱</div>
+        <h4>Mobile-first design</h4>
+        <p>Most of your customers will find you on their phone. It looks perfect on every screen.</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">🔒</div>
+        <h4>Secure & fast hosting</h4>
+        <p>HTTPS, global CDN, and uptime you don't have to think about.</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">🔍</div>
+        <h4>SEO foundations</h4>
+        <p>Built to be found on Google. Local business markup, optimised titles, submitted to Search Console.</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">✏️</div>
+        <h4>Copywriting included</h4>
+        <p>Every word written for you. No blank boxes to fill in yourself.</p>
+      </div>
+      <div class="summary-card">
+        <div class="icon">💬</div>
+        <h4>Ongoing support</h4>
+        <p>WhatsApp us directly. We keep your site up to date as your business grows.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing-section">
+    <div class="section-label">Investment</div>
+    <div class="section-heading">Simple, transparent pricing</div>
+
+    <div class="pricing-cards">
+
+      <div class="pricing-card">
+        <div class="pricing-card-label">One-off build fee</div>
+        <div class="pricing-amount">£349</div>
+        <div class="pricing-freq">paid once, when you're happy with the site</div>
+        <ul class="step-includes" style="margin-top:20px;">
+          <li>Custom-built website for your business</li>
+          <li>Full copywriting included</li>
+          <li>Mobile-optimised design</li>
+          <li>Up to 3 rounds of revisions</li>
+          <li>Domain connected and site made live</li>
+          <li>SEO foundations added in week 2</li>
+        </ul>
+      </div>
+
+      <div class="pricing-card pricing-card-accent">
+        <div class="pricing-badge">Monthly · cancel anytime</div>
+        <div class="pricing-card-label" style="color:#ff5c00;">Ongoing monthly fee</div>
+        <div class="pricing-amount">£79</div>
+        <div class="pricing-freq" style="color:#666;">per month, no contract</div>
+        <ul class="step-includes" style="margin-top:20px;">
+          <li>Site hosted and live 24/7</li>
+          <li>SSL certificate, always secure</li>
+          <li>DDoS protection and firewall</li>
+          <li>99.99% uptime on enterprise infrastructure</li>
+          <li>Content updates whenever you need them</li>
+          <li>New photos or services added on request</li>
+          <li>WhatsApp support. No tickets, no delays</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pricing-note">
+      No contract on the monthly fee. You stay because it works, not because you have to.<br/>
+      Most clients find the site pays for itself within the first month.
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Any questions? Just message us.</h2>
+    <p>We're a small team. You'll always speak to a real person, not a chatbot or a support ticket.</p>
+    <a class="cta-btn" href="https://wearetha.com">wearetha.com</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p><a href="https://wearetha.com">wearetha.com</a> · Web design for local businesses · © 2026 tha</p>
+  </footer>
+
+</body>
+</html>
